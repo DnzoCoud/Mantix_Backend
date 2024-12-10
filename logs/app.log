@@ -1,0 +1,52 @@
+2024-12-10 10:37:59 [INFO] c.g.mantix_api.MantixApiApplication - Starting MantixApiApplication using Java 21.0.4 with PID 17472 (C:\Users\P e r s o n a l\Documents\Development\Others\Gategroup\mantix_api\target\classes started by P e r s o n a l in C:\Users\P e r s o n a l\Documents\Development\Others\Gategroup\mantix_api)
+2024-12-10 10:37:59 [INFO] c.g.mantix_api.MantixApiApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-10 10:38:00 [INFO] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-10 10:38:00 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-10 10:38:00 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-10 10:38:00 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-10 10:38:00 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10 10:38:01 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-10 10:38:01 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-10 10:38:01 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-10 10:38:01 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47162173
+2024-12-10 10:38:01 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-10 10:38:01 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-10 10:38:02 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10 10:38:03 [INFO] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-10 10:38:03 [INFO] c.g.mantix_api.MantixApiApplication - Started MantixApiApplication in 4.259 seconds (process running for 4.727)
+2024-12-10 10:38:25 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-10 10:46:45 [INFO] c.g.mantix_api.MantixApiApplication - Starting MantixApiApplication using Java 21.0.4 with PID 13572 (C:\Users\P e r s o n a l\Documents\Development\Others\Gategroup\mantix_api\target\classes started by P e r s o n a l in C:\Users\P e r s o n a l\Documents\Development\Others\Gategroup\mantix_api)
+2024-12-10 10:46:45 [INFO] c.g.mantix_api.MantixApiApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-10 10:46:47 [INFO] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-10 10:46:47 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-10 10:46:47 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-10 10:46:47 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-10 10:46:47 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-10 10:46:47 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-10 10:46:47 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-10 10:46:47 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-10 10:46:48 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66b31d46
+2024-12-10 10:46:48 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-10 10:46:48 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-10 10:46:48 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-10 10:46:49 [INFO] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-10 10:46:49 [INFO] c.g.mantix_api.MantixApiApplication - Started MantixApiApplication in 4.206 seconds (process running for 4.671)
+2024-12-10 10:46:53 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-10 10:46:53 [ERROR] c.g.m.i.adapters.LoggableException - [eb8424a3-c544-462b-b60d-f9205ec6b764] Error Usuario no registrado.
+2024-12-10 10:46:53 [ERROR] c.g.m.i.adapters.LoggableException - [6acf8949-c327-4b64-865a-863e8aa84f44] Usuario no registrado.
+2024-12-10 10:47:09 [ERROR] c.g.m.i.adapters.LoggableException - [1e0f6d97-0b60-495d-861f-b1e47ac52df1] Error Usuario no registrado.
+2024-12-10 10:47:09 [ERROR] c.g.m.i.adapters.LoggableException - [3e7fa5e8-2c93-4d50-a88a-9634a30855f0] Usuario no registrado.
