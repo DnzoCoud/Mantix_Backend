@@ -1,21 +1,22 @@
-package com.gategroup.mantix_api.domain.models;
+package com.gategroup.mantix_api.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class Subcompany {
+public class SubcompanyDTO {
     private Long id;
     private String name;
     private String sector;
     private String ubication;
     private String status;
     private String configuration;
-    private Country country;
-    private City city;
-    private Department department;
-    private Company company;
+    private CountryDTO country;
+    private CityDTO city;
+    private DepartmentDTO department;
 }

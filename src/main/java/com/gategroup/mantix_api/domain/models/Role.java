@@ -16,4 +16,5 @@ public class Role {
     private String name;
     private String icon;
     private Set<Permission> permissions;
+    // private Company company;
 }
