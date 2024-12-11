@@ -11,13 +11,13 @@ import com.gategroup.mantix_api.infrastructure.exceptions.InvalidCredentialsExce
 public class UserTest {
     @Test
     void shouldCreateUserWithValidData() {
-        User user = new User(2L, "Doe", "sdasd", "sdasd", "sadasd", "sdasdasd", null, null);
+        User user = new User(2L, "Doe", "sdasd", "sdasd", "sadasd", "sdasdasd", null, null, null, null);
         assertNotNull(user);
     }
 
     @Test
     void shouldThrowExceptionForInvalidEmail() {
         assertThrows(InvalidCredentialsException.class,
-                () -> new User(2L, "Doe", "sdasd", "sdasd", "sadasd", "sdasdasd", null, null));
+                () -> new User(2L, "Doe", "sdasd", "sdasd", "sadasd", "sdasdasd", null, null, null, null));
     }
 }

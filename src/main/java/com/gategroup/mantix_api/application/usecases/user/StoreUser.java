@@ -1,7 +1,7 @@
 package com.gategroup.mantix_api.application.usecases.user;
 
-import com.gategroup.mantix_api.application.dto.StoreUserRequestDTO;
 import com.gategroup.mantix_api.application.dto.UserDTO;
+import com.gategroup.mantix_api.application.dto.request.StoreUserRequestDTO;
 import com.gategroup.mantix_api.domain.models.User;
 import com.gategroup.mantix_api.domain.services.IUserService;
 import com.gategroup.mantix_api.infrastructure.adapters.LoggableException;
@@ -26,7 +26,7 @@ public class StoreUser {
                     storeUserRequestDTO.getLastName(),
                     storeUserRequestDTO.getEmail(),
                     storeUserRequestDTO.getPassword(),
-                    null, null);
+                    null, null, null, null);
 
             userToAdd = userService.store(userToAdd);
             return UserMapper.toDto(userToAdd);

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gategroup.mantix_api.application.dto.ApiResponse;
 import com.gategroup.mantix_api.application.dto.Auth.AuthResponse;
 import com.gategroup.mantix_api.application.dto.Auth.LoginRequest;
+import com.gategroup.mantix_api.application.dto.response.ApiResponse;
 import com.gategroup.mantix_api.application.usecases.auth.LoginUseCase;
 import com.gategroup.mantix_api.infrastructure.adapters.BaseController;
 

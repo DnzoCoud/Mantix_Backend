@@ -1,21 +1,16 @@
 package com.gategroup.mantix_api.domain.models;
 
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
-public class Role {
+public class Machine {
     private Long id;
     private String name;
-    private String icon;
-    private Set<Permission> permissions;
-    private Company company;
-    private Subcompany subCompany;
+    private String model;
+    private String serial;
+    private Location location;
 }

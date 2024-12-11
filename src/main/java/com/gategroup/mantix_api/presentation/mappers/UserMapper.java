@@ -20,6 +20,8 @@ public class UserMapper {
                 .stream()
                 .map(permission -> PermissionMapper.toDto(permission))
                 .collect(Collectors.toSet()));
+        userDto.setCompany(CompanyMapper.toDto(user.getCompany()));
+        userDto.setSubCompany(SubcompanyMapper.toDto(user.getSubCompany()));
         return userDto;
     }
 
@@ -32,6 +34,6 @@ public class UserMapper {
                 userEntity.getEmail(),
                 userEntity.getPassword(),
                 RoleMapper.toDomain(userEntity.getRole()),
-                PermissionMapper.muchToDomain(userEntity.getPermissions()));
+                PermissionMapper.muchToDomain(userEntity.getPermissions()), null, null);
     }
 }

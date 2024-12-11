@@ -19,4 +19,6 @@ public class UserDTO {
     private String email;
     private RoleDTO role;
     private Set<PermissionDTO> permitCustomized;
+    private CompanyDTO company;
+    private SubcompanyDTO subCompany;
 }

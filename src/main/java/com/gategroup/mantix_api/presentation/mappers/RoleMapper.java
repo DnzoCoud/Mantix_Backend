@@ -17,6 +17,8 @@ public class RoleMapper {
                 .stream()
                 .map(permission -> PermissionMapper.toDto(permission))
                 .collect(Collectors.toSet()));
+        roleDto.setCompany(CompanyMapper.toDto(role.getCompany()));
+        roleDto.setSubCompany(SubcompanyMapper.toDto(role.getSubCompany()));
         return roleDto;
     }
 
@@ -25,7 +27,13 @@ public class RoleMapper {
     }
 
     public static Role toDomain(RoleEntity roleEntity) {
-        return new Role(roleEntity.getId(), roleEntity.getName(), roleEntity.getIcon(), roleEntity.getPermissions()
-                .stream().map(permission -> PermissionMapper.toDomain(permission)).collect(Collectors.toSet()));
+        return new Role(roleEntity.getId(),
+                roleEntity.getName(),
+                roleEntity.getIcon(),
+                roleEntity.getPermissions()
+                        .stream()
+                        .map(permission -> PermissionMapper.toDomain(permission))
+                        .collect(Collectors.toSet()),
+                null, null);
     }
 }

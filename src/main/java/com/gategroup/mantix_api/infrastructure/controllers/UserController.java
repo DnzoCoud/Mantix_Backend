@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gategroup.mantix_api.application.dto.ApiResponse;
-import com.gategroup.mantix_api.application.dto.StoreUserRequestDTO;
 import com.gategroup.mantix_api.application.dto.UserDTO;
+import com.gategroup.mantix_api.application.dto.request.StoreUserRequestDTO;
+import com.gategroup.mantix_api.application.dto.response.ApiResponse;
 import com.gategroup.mantix_api.application.usecases.user.FindAllUsers;
 import com.gategroup.mantix_api.application.usecases.user.StoreUser;
 import com.gategroup.mantix_api.infrastructure.adapters.BaseController;

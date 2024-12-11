@@ -2,7 +2,7 @@ package com.gategroup.mantix_api.infrastructure.adapters;
 
 import org.springframework.http.ResponseEntity;
 
-import com.gategroup.mantix_api.application.dto.ApiResponse;
+import com.gategroup.mantix_api.application.dto.response.ApiResponse;
 
 public abstract class BaseController {
 

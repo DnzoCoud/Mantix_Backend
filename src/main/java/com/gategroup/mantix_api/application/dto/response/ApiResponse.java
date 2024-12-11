@@ -1,4 +1,4 @@
-package com.gategroup.mantix_api.application.dto;
+package com.gategroup.mantix_api.application.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

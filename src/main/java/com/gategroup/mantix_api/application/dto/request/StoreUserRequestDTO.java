@@ -1,4 +1,4 @@
-package com.gategroup.mantix_api.application.dto;
+package com.gategroup.mantix_api.application.dto.request;
 
 import java.util.Set;
 
