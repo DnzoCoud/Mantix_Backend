@@ -26,7 +26,7 @@ public class StoreUser {
                     storeUserRequestDTO.getLastName(),
                     storeUserRequestDTO.getEmail(),
                     storeUserRequestDTO.getPassword(),
-                    null, null, null, null);
+                    null, null, null);
 
             userToAdd = userService.store(userToAdd);
             return UserMapper.toDto(userToAdd);

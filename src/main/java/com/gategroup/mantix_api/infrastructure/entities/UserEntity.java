@@ -3,20 +3,22 @@ package com.gategroup.mantix_api.infrastructure.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.gategroup.mantix_api.domain.abstracts.Constants;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "email" }))
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +28,25 @@ public class UserEntity {
     private String lastName;
     private String email;
     private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private CompanyEntity company;
+
+    @ManyToOne
+    @JoinColumn(name = "subcompany_id")
+    private SubCompanyEntity subCompany;
+
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleEntity role;
 
-    @ManyToMany
-    @JoinTable(name = "user_permissions", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
-    private Set<PermissionEntity> permissions = new HashSet<>();
+    @OneToMany(mappedBy = Constants.MAPPED_BY_USER)
+    private Set<UserPermissionEntity> permissions = new HashSet<>();
+
+    @OneToMany(mappedBy = "director")
+    private Set<AreaEntity> areas = new HashSet<>();
+
+    @OneToMany(mappedBy = "manager")
+    private Set<LocationEntity> locations = new HashSet<>();
 }

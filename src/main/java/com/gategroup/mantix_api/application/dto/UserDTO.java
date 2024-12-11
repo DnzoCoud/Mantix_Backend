@@ -1,6 +1,5 @@
 package com.gategroup.mantix_api.application.dto;
 
-import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +18,6 @@ public class UserDTO {
     private String lastName;
     private String email;
     private RoleDTO role;
-    private Set<PermissionDTO> permitCustomized;
     private CompanyDTO company;
     private SubcompanyDTO subCompany;
 }

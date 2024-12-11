@@ -10,36 +10,33 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "roles")
-public class RoleEntity {
+@Table(name = "cities", uniqueConstraints = @UniqueConstraint(columnNames = { "name", "code" }))
+public class CityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String icon;
+    private String code;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
-    private CompanyEntity company;
+    @JoinColumn(name = "country_id")
+    private CountryEntity country;
 
     @ManyToOne
-    @JoinColumn(name = "subcompany_id")
-    private SubCompanyEntity subCompany;
+    @JoinColumn(name = "department_id")
+    private DepartmentEntity department;
 
-    @ManyToMany
-    @JoinTable(name = "role_permission", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
-    private Set<PermissionEntity> permissions = new HashSet<>();
+    @OneToMany(mappedBy = Constants.MAPPED_BY_CITY)
+    private Set<CompanyEntity> companies = new HashSet<>();
 
-    @OneToMany(mappedBy = Constants.MAPPED_BY_ROLE)
-    private Set<UserEntity> users = new HashSet<>();
-
+    @OneToMany(mappedBy = Constants.MAPPED_BY_CITY)
+    private Set<SubCompanyEntity> subCompanies = new HashSet<>();
 }

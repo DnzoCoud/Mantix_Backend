@@ -1,7 +1,5 @@
 package com.gategroup.mantix_api.presentation.mappers;
 
-import java.util.stream.Collectors;
-
 import com.gategroup.mantix_api.application.dto.UserDTO;
 import com.gategroup.mantix_api.domain.models.User;
 import com.gategroup.mantix_api.infrastructure.entities.UserEntity;
@@ -16,10 +14,6 @@ public class UserMapper {
         userDto.setLastName(user.getLastName());
         userDto.setEmail(user.getEmail());
         userDto.setRole(RoleMapper.toDto(user.getRole()));
-        userDto.setPermitCustomized(user.getPermissions()
-                .stream()
-                .map(permission -> PermissionMapper.toDto(permission))
-                .collect(Collectors.toSet()));
         userDto.setCompany(CompanyMapper.toDto(user.getCompany()));
         userDto.setSubCompany(SubcompanyMapper.toDto(user.getSubCompany()));
         userDto.setFullName(user.getFullName());
@@ -35,6 +29,6 @@ public class UserMapper {
                 userEntity.getEmail(),
                 userEntity.getPassword(),
                 RoleMapper.toDomain(userEntity.getRole()),
-                PermissionMapper.muchToDomain(userEntity.getPermissions()), null, null);
+                null, null);
     }
 }

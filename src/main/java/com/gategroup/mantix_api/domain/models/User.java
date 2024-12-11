@@ -1,6 +1,5 @@
 package com.gategroup.mantix_api.domain.models;
 
-import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +18,6 @@ public class User {
     private String email;
     private String password;
     private Role role;
-    private Set<Permission> permissions;
     private Company company;
     private Subcompany subCompany;
 
