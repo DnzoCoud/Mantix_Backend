@@ -8,7 +8,7 @@ public class MaintenanceDayMapper {
         MaintenanceDayDTO maintenanceDayDto = new MaintenanceDayDTO();
         maintenanceDayDto.setId(maintenanceDay.getId());
         maintenanceDayDto.setDate(maintenanceDay.getDate());
-        maintenanceDayDto.setStatus(maintenanceDay.isStatus());
+        maintenanceDayDto.setCompleted(maintenanceDay.isCompleted());
         maintenanceDayDto.setCompany(CompanyMapper.toDto(maintenanceDay.getCompany()));
         maintenanceDayDto.setSubCompany(SubcompanyMapper.toDto(maintenanceDay.getSubCompany()));
         return maintenanceDayDto;

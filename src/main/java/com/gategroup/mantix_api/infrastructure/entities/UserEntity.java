@@ -10,16 +10,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "email" }))
-public class UserEntity {
+public class UserEntity extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,4 +50,13 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "manager")
     private Set<LocationEntity> locations = new HashSet<>();
+
+    @OneToMany(mappedBy = "changedByUser")
+    private Set<MaintenanceStatusHistoryEntity> maintenanceStatusHistory = new HashSet<>();
+
+    @OneToMany(mappedBy = "technician")
+    private Set<MaintenanceActivityEntity> maintenanceActivities = new HashSet<>();
+
+    @ManyToMany(mappedBy = "technicians")
+    private Set<MaintenanceEntity> maintenances = new HashSet<>();
 }

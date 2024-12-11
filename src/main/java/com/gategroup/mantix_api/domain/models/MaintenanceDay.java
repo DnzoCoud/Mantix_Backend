@@ -13,7 +13,7 @@ import lombok.ToString;
 public class MaintenanceDay {
     private Long id;
     private LocalDate date;
-    private boolean status;
+    private boolean completed;
     private Company company;
     private Subcompany subCompany;
 }

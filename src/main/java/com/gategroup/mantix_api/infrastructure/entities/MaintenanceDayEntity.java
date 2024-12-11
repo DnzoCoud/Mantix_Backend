@@ -1,5 +1,7 @@
 package com.gategroup.mantix_api.infrastructure.entities;
 
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.gategroup.mantix_api.domain.abstracts.Constants;
@@ -12,16 +14,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @Entity
-@Table(name = "areas")
-public class AreaEntity extends AuditableEntity {
+@Table(name = "maintenance_days ")
+public class MaintenanceDayEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private LocalDate date;
+    private boolean completed;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -31,10 +34,6 @@ public class AreaEntity extends AuditableEntity {
     @JoinColumn(name = "subcompany_id")
     private SubCompanyEntity subCompany;
 
-    @ManyToOne
-    @JoinColumn(name = "director_id")
-    private UserEntity director;
-
-    @OneToMany(mappedBy = Constants.MAPPED_BY_AREA)
-    private Set<LocationEntity> locations;
+    @OneToMany(mappedBy = Constants.MAPPED_BY_MAINTENANCE_DAY)
+    private Set<MaintenanceEntity> maintenances = new HashSet<>();
 }

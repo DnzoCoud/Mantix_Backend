@@ -14,12 +14,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Entity
-@Table(name = "companies", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
-public class SubCompanyEntity {
+@Table(name = "sub_companies", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
+public class SubCompanyEntity extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,4 +49,10 @@ public class SubCompanyEntity {
 
     @OneToMany(mappedBy = Constants.MAPPED_BY_SUB_COMPANY)
     private Set<AreaEntity> areas = new HashSet<>();
+
+    @OneToMany(mappedBy = Constants.MAPPED_BY_SUB_COMPANY)
+    private Set<MaintenanceDayEntity> maintenanceDays = new HashSet<>();
+
+    @OneToMany(mappedBy = Constants.MAPPED_BY_SUB_COMPANY)
+    private Set<MaintenanceEntity> maintenances = new HashSet<>();
 }

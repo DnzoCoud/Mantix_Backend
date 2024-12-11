@@ -14,7 +14,7 @@ import lombok.Setter;
 public class MaintenanceDayDTO {
     private Long id;
     private LocalDate date;
-    private boolean status;
+    private boolean completed;
     private CompanyDTO company;
     private SubcompanyDTO subCompany;
 }

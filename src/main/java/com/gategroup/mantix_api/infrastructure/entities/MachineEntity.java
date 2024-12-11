@@ -1,5 +1,6 @@
 package com.gategroup.mantix_api.infrastructure.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import com.gategroup.mantix_api.domain.abstracts.Constants;
@@ -12,29 +13,23 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @Entity
-@Table(name = "areas")
-public class AreaEntity extends AuditableEntity {
+@Table(name = "machines")
+public class MachineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String model;
+    private String serial;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
-    private CompanyEntity company;
+    @JoinColumn(name = "location_id")
+    private LocationEntity location;
 
-    @ManyToOne
-    @JoinColumn(name = "subcompany_id")
-    private SubCompanyEntity subCompany;
-
-    @ManyToOne
-    @JoinColumn(name = "director_id")
-    private UserEntity director;
-
-    @OneToMany(mappedBy = Constants.MAPPED_BY_AREA)
-    private Set<LocationEntity> locations;
+    @OneToMany(mappedBy = Constants.MAPPED_BY_MACHINE)
+    private Set<MaintenanceEntity> maintenances = new HashSet<>();
 }
