@@ -22,4 +22,8 @@ public class User {
     private Set<Permission> permissions;
     private Company company;
     private Subcompany subCompany;
+
+    public String getFullName() {
+        return String.format("%s %s", firstName, lastName);
+    }
 }

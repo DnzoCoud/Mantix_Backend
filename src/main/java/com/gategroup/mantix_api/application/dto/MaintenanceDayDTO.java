@@ -1,6 +1,6 @@
 package com.gategroup.mantix_api.application.dto;
 
-import java.util.Set;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,15 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserDTO {
+public class MaintenanceDayDTO {
     private Long id;
-    private String fullName;
-    private String username;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private RoleDTO role;
-    private Set<PermissionDTO> permitCustomized;
+    private LocalDate date;
+    private boolean status;
     private CompanyDTO company;
     private SubcompanyDTO subCompany;
 }

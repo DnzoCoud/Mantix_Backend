@@ -22,6 +22,7 @@ public class UserMapper {
                 .collect(Collectors.toSet()));
         userDto.setCompany(CompanyMapper.toDto(user.getCompany()));
         userDto.setSubCompany(SubcompanyMapper.toDto(user.getSubCompany()));
+        userDto.setFullName(user.getFullName());
         return userDto;
     }
 
