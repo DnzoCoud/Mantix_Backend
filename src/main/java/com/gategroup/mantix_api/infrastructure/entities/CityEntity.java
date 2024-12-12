@@ -13,12 +13,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cities", uniqueConstraints = @UniqueConstraint(columnNames = { "name", "code" }))
+@Table(name = "cities")
 public class CityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,7 +3,7 @@ package com.gategroup.mantix_api.presentation.mappers;
 import com.gategroup.mantix_api.application.dto.ActivityAttachmentDTO;
 import com.gategroup.mantix_api.domain.models.ActivityAttachment;
 
-public class ActivityAttachmentMapper {
+public final class ActivityAttachmentMapper {
     public static ActivityAttachmentDTO toDto(ActivityAttachment activityAttachment) {
         ActivityAttachmentDTO activityAttachmentDto = new ActivityAttachmentDTO();
         activityAttachmentDto.setId(activityAttachment.getId());

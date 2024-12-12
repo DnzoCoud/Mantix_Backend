@@ -3,8 +3,12 @@ package com.gategroup.mantix_api.infrastructure.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import com.gategroup.mantix_api.domain.abstracts.Constants;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,8 +19,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "companies", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
 public class CompanyEntity extends AuditableEntity {
@@ -28,6 +34,9 @@ public class CompanyEntity extends AuditableEntity {
     private String sector;
     private String ubication;
     private String status;
+
+    @Column(columnDefinition = "json")
+    @JdbcTypeCode(SqlTypes.JSON)
     private String configuration;
 
     @ManyToOne

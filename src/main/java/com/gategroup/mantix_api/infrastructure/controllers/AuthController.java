@@ -14,7 +14,7 @@ import com.gategroup.mantix_api.application.usecases.auth.LoginUseCase;
 import com.gategroup.mantix_api.infrastructure.adapters.BaseController;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController extends BaseController {
     private final LoginUseCase loginUseCase;
 

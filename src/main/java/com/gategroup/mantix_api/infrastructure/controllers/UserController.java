@@ -18,7 +18,7 @@ import com.gategroup.mantix_api.application.usecases.user.StoreUser;
 import com.gategroup.mantix_api.infrastructure.adapters.BaseController;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 public class UserController extends BaseController {
 
     private final FindAllUsers finfAllUsers;

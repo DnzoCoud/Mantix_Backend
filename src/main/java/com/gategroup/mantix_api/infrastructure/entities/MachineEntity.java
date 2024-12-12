@@ -13,12 +13,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Entity
 @Table(name = "machines")
-public class MachineEntity {
+public class MachineEntity extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,4 +32,8 @@ public class MachineEntity {
 
     @OneToMany(mappedBy = Constants.MAPPED_BY_MACHINE)
     private Set<MaintenanceEntity> maintenances = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "machine_status_id")
+    private MachineStatusEntity machineStatus;
 }

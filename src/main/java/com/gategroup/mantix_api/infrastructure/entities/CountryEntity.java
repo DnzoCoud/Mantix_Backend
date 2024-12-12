@@ -13,8 +13,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
+import lombok.Setter;
 
 @Data
+@Setter
 @Entity
 @Table(name = "countries", uniqueConstraints = @UniqueConstraint(columnNames = { "name", "code" }))
 public class CountryEntity {
