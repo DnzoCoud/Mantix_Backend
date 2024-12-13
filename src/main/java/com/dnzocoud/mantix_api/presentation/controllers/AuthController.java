@@ -1,4 +1,4 @@
-package com.dnzocoud.mantix_api.infrastructure.controllers;
+package com.dnzocoud.mantix_api.presentation.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

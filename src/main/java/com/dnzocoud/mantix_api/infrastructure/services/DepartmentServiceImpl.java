@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.dnzocoud.mantix_api.domain.models.Department;
 import com.dnzocoud.mantix_api.domain.services.IDepartmentService;
 import com.dnzocoud.mantix_api.infrastructure.entities.DepartmentEntity;
+import com.dnzocoud.mantix_api.infrastructure.mappers.DepartmentEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.DepartmentRepositoryJpa;
-import com.dnzocoud.mantix_api.presentation.mappers.DepartmentEntityMapper;
 
 @Service
 public class DepartmentServiceImpl implements IDepartmentService {

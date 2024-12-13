@@ -1,4 +1,4 @@
-package com.dnzocoud.mantix_api.infrastructure.controllers;
+package com.dnzocoud.mantix_api.presentation.controllers;
 
 import java.util.List;
 

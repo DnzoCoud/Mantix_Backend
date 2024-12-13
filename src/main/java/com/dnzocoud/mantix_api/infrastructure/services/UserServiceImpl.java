@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.dnzocoud.mantix_api.domain.models.User;
 import com.dnzocoud.mantix_api.domain.services.IUserService;
 import com.dnzocoud.mantix_api.infrastructure.entities.UserEntity;
+import com.dnzocoud.mantix_api.infrastructure.mappers.UserEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.UserRepositoryJpa;
-import com.dnzocoud.mantix_api.presentation.mappers.UserEntityMapper;
 
 @Service
 public class UserServiceImpl implements IUserService {

@@ -1,4 +1,4 @@
-package com.dnzocoud.mantix_api.presentation.mappers;
+package com.dnzocoud.mantix_api.infrastructure.mappers;
 
 import com.dnzocoud.mantix_api.domain.models.Country;
 import com.dnzocoud.mantix_api.infrastructure.entities.CountryEntity;

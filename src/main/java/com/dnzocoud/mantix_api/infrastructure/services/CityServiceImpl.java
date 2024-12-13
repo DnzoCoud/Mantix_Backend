@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.dnzocoud.mantix_api.domain.models.City;
 import com.dnzocoud.mantix_api.domain.services.ICityService;
 import com.dnzocoud.mantix_api.infrastructure.entities.CityEntity;
+import com.dnzocoud.mantix_api.infrastructure.mappers.CityEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.CityRepositoryJpa;
-import com.dnzocoud.mantix_api.presentation.mappers.CityEntityMapper;
 
 @Service
 public class CityServiceImpl implements ICityService {

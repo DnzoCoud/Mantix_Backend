@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.dnzocoud.mantix_api.domain.models.Company;
 import com.dnzocoud.mantix_api.domain.services.ICompanyService;
 import com.dnzocoud.mantix_api.infrastructure.entities.CompanyEntity;
+import com.dnzocoud.mantix_api.infrastructure.mappers.CompanyEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.CompanyRepositoryJpa;
-import com.dnzocoud.mantix_api.presentation.mappers.CompanyEntityMapper;
 
 @Service
 public class CompanyServiceImpl implements ICompanyService {

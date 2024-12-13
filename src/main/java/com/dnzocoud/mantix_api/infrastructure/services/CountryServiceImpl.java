@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.dnzocoud.mantix_api.domain.models.Country;
 import com.dnzocoud.mantix_api.domain.services.ICountryService;
 import com.dnzocoud.mantix_api.infrastructure.entities.CountryEntity;
+import com.dnzocoud.mantix_api.infrastructure.mappers.CountryEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.CountryRepositoryJpa;
-import com.dnzocoud.mantix_api.presentation.mappers.CountryEntityMapper;
 
 @Service
 public class CountryServiceImpl implements ICountryService {
