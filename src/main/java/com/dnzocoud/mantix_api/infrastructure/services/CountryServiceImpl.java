@@ -20,7 +20,7 @@ public class CountryServiceImpl implements ICountryService {
     @Autowired
     public CountryServiceImpl(CountryRepositoryJpa countryRepositoryJpa) {
         this.countryRepositoryJpa = countryRepositoryJpa;
-    } 
+    }
 
     @Override
     public Optional<Country> find(Long id) {
