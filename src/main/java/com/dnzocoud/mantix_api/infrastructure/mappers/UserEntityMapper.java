@@ -26,6 +26,9 @@ public final class UserEntityMapper {
         userEntity.setLastName(user.getLastName());
         userEntity.setEmail(user.getEmail());
         userEntity.setPassword(user.getPassword());
+        userEntity.setRole(RoleEntityMapper.toEntity(user.getRole()));
+        userEntity.setCompany(CompanyEntityMapper.toEntity(user.getCompany()));
+        userEntity.setSubCompany(SubcompanyEntityMapper.toEntity(user.getSubCompany()));
         return userEntity;
     }
 }

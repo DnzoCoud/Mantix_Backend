@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 import com.dnzocoud.mantix_api.domain.models.Role;
 import com.dnzocoud.mantix_api.infrastructure.entities.RoleEntity;
 
-public class RoleEntityMapper {
+public final class RoleEntityMapper {
+
     public static Set<Role> muchToDomain(Set<RoleEntity> roleEntities) {
-        return roleEntities.stream().map(role -> toDomain(role)).collect(Collectors.toSet());
+        return roleEntities.stream().map(RoleEntityMapper::toDomain).collect(Collectors.toSet());
     }
 
     public static Role toDomain(RoleEntity roleEntity) {
@@ -17,8 +18,24 @@ public class RoleEntityMapper {
                 roleEntity.getIcon(),
                 roleEntity.getPermissions()
                         .stream()
-                        .map(permission -> PermissionEntityMapper.toDomain(permission))
+                        .map(PermissionEntityMapper::toDomain)
                         .collect(Collectors.toSet()),
-                null, null);
+                CompanyEntityMapper.toDomain(roleEntity.getCompany()),
+                SubcompanyEntityMapper.toDomain(roleEntity.getSubCompany()));
+    }
+
+    public static RoleEntity toEntity(Role role) {
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setId(role.getId());
+        roleEntity.setName(role.getName());
+        roleEntity.setIcon(role.getIcon());
+        roleEntity.setCompany(CompanyEntityMapper.toEntity(role.getCompany()));
+        roleEntity.setSubCompany(SubcompanyEntityMapper.toEntity(role.getSubCompany()));
+        roleEntity.setPermissions(
+                role.getPermissions()
+                        .stream()
+                        .map(PermissionEntityMapper::toEntity)
+                        .collect(Collectors.toSet()));
+        return roleEntity;
     }
 }

@@ -19,8 +19,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "sub_companies", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
 public class SubCompanyEntity extends AuditableEntity {
