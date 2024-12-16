@@ -20,7 +20,7 @@ public class User {
     private String password;
     private Role role;
     private Company company;
-    private Subcompany subCompany;
+    private SubCompany subCompany;
 
     public String getFullName() {
         return String.format("%s %s", firstName, lastName);

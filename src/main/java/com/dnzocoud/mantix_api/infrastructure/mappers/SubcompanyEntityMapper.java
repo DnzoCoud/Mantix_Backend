@@ -1,12 +1,12 @@
 package com.dnzocoud.mantix_api.infrastructure.mappers;
 
-import com.dnzocoud.mantix_api.domain.models.Subcompany;
+import com.dnzocoud.mantix_api.domain.models.SubCompany;
 import com.dnzocoud.mantix_api.infrastructure.entities.SubCompanyEntity;
 
 public final class SubcompanyEntityMapper {
 
-    public static Subcompany toDomain(SubCompanyEntity subCompanyEntity) {
-        return new Subcompany(
+    public static SubCompany toDomain(SubCompanyEntity subCompanyEntity) {
+        return new SubCompany(
                 subCompanyEntity.getId(),
                 subCompanyEntity.getName(),
                 subCompanyEntity.getSector(),
@@ -19,7 +19,7 @@ public final class SubcompanyEntityMapper {
                 CompanyEntityMapper.toDomain(subCompanyEntity.getCompany()));
     }
 
-    public static SubCompanyEntity toEntity(Subcompany subCompany) {
+    public static SubCompanyEntity toEntity(SubCompany subCompany) {
         SubCompanyEntity subCompanyEntity = new SubCompanyEntity();
         subCompanyEntity.setId(subCompany.getId());
         subCompanyEntity.setName(subCompany.getName());

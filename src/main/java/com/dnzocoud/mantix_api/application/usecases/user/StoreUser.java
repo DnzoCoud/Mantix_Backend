@@ -5,8 +5,10 @@ import com.dnzocoud.mantix_api.application.dto.request.StoreUserRequestDTO;
 import com.dnzocoud.mantix_api.application.mappers.UserMapper;
 import com.dnzocoud.mantix_api.application.usecases.company.GetCompanyById;
 import com.dnzocoud.mantix_api.application.usecases.role.GetRoleById;
+import com.dnzocoud.mantix_api.application.usecases.subCompany.GetSubCompanyById;
 import com.dnzocoud.mantix_api.domain.models.Company;
 import com.dnzocoud.mantix_api.domain.models.Role;
+import com.dnzocoud.mantix_api.domain.models.SubCompany;
 import com.dnzocoud.mantix_api.domain.models.User;
 import com.dnzocoud.mantix_api.domain.services.IUserService;
 import com.dnzocoud.mantix_api.infrastructure.adapters.LoggableException;
@@ -18,17 +20,25 @@ public class StoreUser {
     private final IUserService userService;
     private final GetRoleById getRoleById;
     private final GetCompanyById getCompanyById;
+    private final GetSubCompanyById getSubCompanyById;
 
-    public StoreUser(IUserService userService, GetRoleById getRoleById, GetCompanyById getCompanyById) {
+    public StoreUser(
+            IUserService userService,
+            GetRoleById getRoleById,
+            GetCompanyById getCompanyById,
+            GetSubCompanyById getSubCompanyById) {
         this.userService = userService;
         this.getRoleById = getRoleById;
         this.getCompanyById = getCompanyById;
+        this.getSubCompanyById = getSubCompanyById;
     }
 
     public UserDTO execute(StoreUserRequestDTO storeUserRequestDTO) {
         try {
             Role existRole = getRoleById.execute(storeUserRequestDTO.getRoleId());
             Company existCompany = getCompanyById.execute(storeUserRequestDTO.getCompanyId());
+            SubCompany existSubCompany = getSubCompanyById.execute(storeUserRequestDTO.getSubCompanyId());
+
             User userToAdd = new User(
                     null,
                     storeUserRequestDTO.getUsername(),
@@ -38,7 +48,7 @@ public class StoreUser {
                     storeUserRequestDTO.getPassword(),
                     existRole,
                     existCompany,
-                    null);
+                    existSubCompany);
 
             userToAdd = userService.store(userToAdd);
             return UserMapper.toDto(userToAdd);

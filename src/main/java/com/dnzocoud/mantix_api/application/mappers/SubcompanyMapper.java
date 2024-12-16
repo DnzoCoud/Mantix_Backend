@@ -1,10 +1,10 @@
 package com.dnzocoud.mantix_api.application.mappers;
 
 import com.dnzocoud.mantix_api.application.dto.SubcompanyDTO;
-import com.dnzocoud.mantix_api.domain.models.Subcompany;
+import com.dnzocoud.mantix_api.domain.models.SubCompany;
 
 public class SubcompanyMapper {
-    public static SubcompanyDTO toDto(Subcompany subCompany) {
+    public static SubcompanyDTO toDto(SubCompany subCompany) {
         SubcompanyDTO subcompanyDto = new SubcompanyDTO();
         subcompanyDto.setId(subCompany.getId());
         subcompanyDto.setName(subCompany.getName());

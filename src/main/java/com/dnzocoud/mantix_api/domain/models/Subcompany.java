@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Subcompany {
+public class SubCompany {
     private Long id;
     private String name;
     private String sector;

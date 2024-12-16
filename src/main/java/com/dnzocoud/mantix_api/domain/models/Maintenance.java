@@ -24,5 +24,5 @@ public class Maintenance {
     private MaintenanceDay maintenanceDay;
     private MaintenanceExecutionType executionType;
     private Company company;
-    private Subcompany subCompany;
+    private SubCompany subCompany;
 }

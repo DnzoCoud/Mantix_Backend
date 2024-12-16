@@ -15,5 +15,5 @@ public class MaintenanceDay {
     private LocalDate date;
     private boolean completed;
     private Company company;
-    private Subcompany subCompany;
+    private SubCompany subCompany;
 }

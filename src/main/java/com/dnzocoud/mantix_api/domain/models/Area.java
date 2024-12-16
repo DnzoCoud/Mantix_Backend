@@ -11,6 +11,6 @@ public class Area {
     private Long id;
     private String name;
     private Company company;
-    private Subcompany subCompany;
+    private SubCompany subCompany;
     private User director;
 }
