@@ -13,7 +13,10 @@ import com.dnzocoud.mantix_api.infrastructure.entities.RoleEntity;
 import com.dnzocoud.mantix_api.infrastructure.mappers.RoleEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.RoleRepositoryJpa;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class RoleServiceImpl implements IRoleService {
     private final RoleRepositoryJpa roleRepositoryJpa;
 

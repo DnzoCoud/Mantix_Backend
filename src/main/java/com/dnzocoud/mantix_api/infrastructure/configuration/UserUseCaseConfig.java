@@ -9,6 +9,7 @@ import com.dnzocoud.mantix_api.application.usecases.role.GetRoleById;
 import com.dnzocoud.mantix_api.application.usecases.subCompany.GetSubCompanyById;
 import com.dnzocoud.mantix_api.application.usecases.user.FindAllUsers;
 import com.dnzocoud.mantix_api.application.usecases.user.StoreUser;
+import com.dnzocoud.mantix_api.domain.services.IPasswordHashing;
 import com.dnzocoud.mantix_api.domain.services.IUserService;
 
 @Configuration
@@ -18,17 +19,20 @@ public class UserUseCaseConfig {
     private final GetRoleById getRoleById;
     private final GetCompanyById getCompanyById;
     private final GetSubCompanyById getSubCompanyById;
+    private final IPasswordHashing passwordHashing;
 
     @Autowired
     public UserUseCaseConfig(
             IUserService userService,
             GetRoleById getRoleById,
             GetCompanyById getCompanyById,
-            GetSubCompanyById getSubCompanyById) {
+            GetSubCompanyById getSubCompanyById,
+            IPasswordHashing passwordHashing) {
         this.userService = userService;
         this.getRoleById = getRoleById;
         this.getCompanyById = getCompanyById;
         this.getSubCompanyById = getSubCompanyById;
+        this.passwordHashing = passwordHashing;
     }
 
     @Bean
@@ -38,6 +42,6 @@ public class UserUseCaseConfig {
 
     @Bean
     public StoreUser storeUser() {
-        return new StoreUser(userService, getRoleById, getCompanyById, getSubCompanyById);
+        return new StoreUser(userService, getRoleById, getCompanyById, getSubCompanyById, passwordHashing);
     }
 }

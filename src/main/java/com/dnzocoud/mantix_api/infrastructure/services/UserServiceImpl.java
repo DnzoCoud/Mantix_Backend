@@ -37,7 +37,8 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User store(User usuario) {
-        return null;
+        UserEntity newUser = userRepositoryJpa.save(UserEntityMapper.toEntity(usuario));
+        return UserEntityMapper.toDomain(newUser);
     }
 
 }

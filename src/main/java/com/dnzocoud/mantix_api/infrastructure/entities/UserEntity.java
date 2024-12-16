@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.dnzocoud.mantix_api.domain.abstracts.Constants;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,8 @@ public class UserEntity extends AuditableEntity {
     private String lastName;
     private String email;
     private String password;
+    @Column(columnDefinition = "TEXT")
+    private String salt;
 
     @ManyToOne
     @JoinColumn(name = "company_id")

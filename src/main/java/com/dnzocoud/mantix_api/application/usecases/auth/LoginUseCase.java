@@ -24,6 +24,7 @@ public class LoginUseCase {
         }
         User user = authenticacionService.login(loginRequest.getEmail(), loginRequest.getPassword());
         String token = jwtProvider.generateToken(user);
+        System.out.println("token: " + token);
         return new AuthResponse(token, UserMapper.toDto(user));
     }
 }

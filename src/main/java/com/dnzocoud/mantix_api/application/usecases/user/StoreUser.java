@@ -10,6 +10,7 @@ import com.dnzocoud.mantix_api.domain.models.Company;
 import com.dnzocoud.mantix_api.domain.models.Role;
 import com.dnzocoud.mantix_api.domain.models.SubCompany;
 import com.dnzocoud.mantix_api.domain.models.User;
+import com.dnzocoud.mantix_api.domain.services.IPasswordHashing;
 import com.dnzocoud.mantix_api.domain.services.IUserService;
 import com.dnzocoud.mantix_api.infrastructure.adapters.LoggableException;
 import com.dnzocoud.mantix_api.infrastructure.exceptions.FailOperationException;
@@ -21,16 +22,19 @@ public class StoreUser {
     private final GetRoleById getRoleById;
     private final GetCompanyById getCompanyById;
     private final GetSubCompanyById getSubCompanyById;
+    private final IPasswordHashing passwordHashing;
 
     public StoreUser(
             IUserService userService,
             GetRoleById getRoleById,
             GetCompanyById getCompanyById,
-            GetSubCompanyById getSubCompanyById) {
+            GetSubCompanyById getSubCompanyById,
+            IPasswordHashing passwordHashing) {
         this.userService = userService;
         this.getRoleById = getRoleById;
         this.getCompanyById = getCompanyById;
         this.getSubCompanyById = getSubCompanyById;
+        this.passwordHashing = passwordHashing;
     }
 
     private static void validArguments(StoreUserRequestDTO storeUserRequestDTO) {
@@ -44,7 +48,12 @@ public class StoreUser {
         try {
             Role existRole = getRoleById.execute(storeUserRequestDTO.getRoleId());
             Company existCompany = getCompanyById.execute(storeUserRequestDTO.getCompanyId());
-            SubCompany existSubCompany = getSubCompanyById.execute(storeUserRequestDTO.getSubCompanyId());
+            SubCompany existSubCompany = (storeUserRequestDTO.getSubCompanyId() != null)
+                    ? getSubCompanyById.execute(storeUserRequestDTO.getSubCompanyId())
+                    : null;
+
+            String salt = passwordHashing.generateSalt();
+            String hashedPassword = passwordHashing.hashPassword(storeUserRequestDTO.getPassword(), salt);
 
             User userToAdd = new User(
                     null,
@@ -52,7 +61,8 @@ public class StoreUser {
                     storeUserRequestDTO.getFirstName(),
                     storeUserRequestDTO.getLastName(),
                     storeUserRequestDTO.getEmail(),
-                    storeUserRequestDTO.getPassword(),
+                    hashedPassword,
+                    salt,
                     existRole,
                     existCompany,
                     existSubCompany);

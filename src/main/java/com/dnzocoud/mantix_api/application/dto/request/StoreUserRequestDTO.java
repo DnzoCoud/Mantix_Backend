@@ -1,7 +1,5 @@
 package com.dnzocoud.mantix_api.application.dto.request;
 
-import java.util.Set;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +14,4 @@ public class StoreUserRequestDTO {
     private Long roleId;
     private Long companyId;
     private Long subCompanyId;
-    private Set<Long> permissions;
 }

@@ -22,7 +22,7 @@ import jakarta.annotation.PostConstruct;
 
 @Component
 public class JwtProvider implements ITokenService {
-    private static final String SECRET_KEY = "miClaveSecretaMuyLargaDe32Caracteres";
+    private static final String SECRET_KEY = "42E4E2F8C1195F44FC7F224CEBA1EC93F6746A9A3D517543638AD4B58A";
     private static final long EXPIRATION_TIME = 86400000; // 1 día
     private SecretKey key;
 
@@ -67,7 +67,7 @@ public class JwtProvider implements ITokenService {
     private String buildToken(final UserDTO user) {
         return Jwts.builder()
                 .id(user.getId().toString())
-                .claims(Map.of("name", user.getUsername()))
+                .claims(Map.of("name", user.getFullName()))
                 .subject(user.getEmail()).issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(getSignKey())

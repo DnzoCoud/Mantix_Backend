@@ -13,6 +13,7 @@ public final class UserEntityMapper {
                 userEntity.getLastName(),
                 userEntity.getEmail(),
                 userEntity.getPassword(),
+                userEntity.getSalt(),
                 RoleEntityMapper.toDomain(userEntity.getRole()),
                 CompanyEntityMapper.toDomain(userEntity.getCompany()),
                 SubcompanyEntityMapper.toDomain(userEntity.getSubCompany()));
@@ -26,6 +27,7 @@ public final class UserEntityMapper {
         userEntity.setLastName(user.getLastName());
         userEntity.setEmail(user.getEmail());
         userEntity.setPassword(user.getPassword());
+        userEntity.setSalt(user.getSalt());
         userEntity.setRole(RoleEntityMapper.toEntity(user.getRole()));
         userEntity.setCompany(CompanyEntityMapper.toEntity(user.getCompany()));
         userEntity.setSubCompany(SubcompanyEntityMapper.toEntity(user.getSubCompany()));
