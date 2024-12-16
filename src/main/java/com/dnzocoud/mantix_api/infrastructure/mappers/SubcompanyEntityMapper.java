@@ -6,6 +6,8 @@ import com.dnzocoud.mantix_api.infrastructure.entities.SubCompanyEntity;
 public final class SubcompanyEntityMapper {
 
     public static SubCompany toDomain(SubCompanyEntity subCompanyEntity) {
+        if (subCompanyEntity == null)
+            return null;
         return new SubCompany(
                 subCompanyEntity.getId(),
                 subCompanyEntity.getName(),
@@ -20,6 +22,8 @@ public final class SubcompanyEntityMapper {
     }
 
     public static SubCompanyEntity toEntity(SubCompany subCompany) {
+        if (subCompany == null)
+            return null;
         SubCompanyEntity subCompanyEntity = new SubCompanyEntity();
         subCompanyEntity.setId(subCompany.getId());
         subCompanyEntity.setName(subCompany.getName());

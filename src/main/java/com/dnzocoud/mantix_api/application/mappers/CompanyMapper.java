@@ -5,6 +5,9 @@ import com.dnzocoud.mantix_api.domain.models.Company;
 
 public final class CompanyMapper {
     public static CompanyDTO toDto(Company company) {
+        if (company == null)
+            return null;
+
         CompanyDTO companyDto = new CompanyDTO();
         companyDto.setId(company.getId());
         companyDto.setName(company.getName());

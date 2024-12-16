@@ -5,6 +5,9 @@ import com.dnzocoud.mantix_api.domain.models.SubCompany;
 
 public class SubcompanyMapper {
     public static SubcompanyDTO toDto(SubCompany subCompany) {
+        if (subCompany == null)
+            return null;
+
         SubcompanyDTO subcompanyDto = new SubcompanyDTO();
         subcompanyDto.setId(subCompany.getId());
         subcompanyDto.setName(subCompany.getName());
@@ -17,5 +20,5 @@ public class SubcompanyMapper {
         subcompanyDto.setDepartment(DepartmentMapper.toDto(subCompany.getDepartment()));
         return subcompanyDto;
     }
-    
+
 }

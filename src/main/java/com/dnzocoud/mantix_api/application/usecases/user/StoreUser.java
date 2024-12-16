@@ -33,7 +33,14 @@ public class StoreUser {
         this.getSubCompanyById = getSubCompanyById;
     }
 
+    private static void validArguments(StoreUserRequestDTO storeUserRequestDTO) {
+        if (storeUserRequestDTO.getCompanyId() == null && storeUserRequestDTO.getSubCompanyId() == null) {
+            throw new RuntimeException("Debes especificar la compañia o la subcompañia.");
+        }
+    }
+
     public UserDTO execute(StoreUserRequestDTO storeUserRequestDTO) {
+        validArguments(storeUserRequestDTO);
         try {
             Role existRole = getRoleById.execute(storeUserRequestDTO.getRoleId());
             Company existCompany = getCompanyById.execute(storeUserRequestDTO.getCompanyId());

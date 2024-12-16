@@ -6,6 +6,8 @@ import com.dnzocoud.mantix_api.infrastructure.entities.CompanyEntity;
 public final class CompanyEntityMapper {
 
     public static Company toDomain(CompanyEntity companyEntity) {
+        if (companyEntity == null)
+            return null;
         return new Company(
                 companyEntity.getId(),
                 companyEntity.getName(),
@@ -19,6 +21,8 @@ public final class CompanyEntityMapper {
     }
 
     public static CompanyEntity toEntity(Company company) {
+        if (company == null)
+            return null;
         CompanyEntity companyEntity = new CompanyEntity();
         companyEntity.setId(company.getId());
         companyEntity.setName(company.getName());
