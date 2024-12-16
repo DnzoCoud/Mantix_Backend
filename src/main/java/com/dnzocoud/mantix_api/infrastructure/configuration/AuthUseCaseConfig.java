@@ -1,5 +1,6 @@
 package com.dnzocoud.mantix_api.infrastructure.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +13,7 @@ public class AuthUseCaseConfig {
     private final AuthenticacionService authenticacionService;
     private final ITokenService tokenProvider;
 
+    @Autowired
     public AuthUseCaseConfig(AuthenticacionService authenticacionService, ITokenService tokenProvider) {
         this.authenticacionService = authenticacionService;
         this.tokenProvider = tokenProvider;

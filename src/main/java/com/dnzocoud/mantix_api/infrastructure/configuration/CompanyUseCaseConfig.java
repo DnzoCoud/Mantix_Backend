@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.dnzocoud.mantix_api.application.usecases.city.GetCityById;
 import com.dnzocoud.mantix_api.application.usecases.company.FindAllCompanies;
+import com.dnzocoud.mantix_api.application.usecases.company.GetCompanyById;
 import com.dnzocoud.mantix_api.application.usecases.company.StoreCompany;
 import com.dnzocoud.mantix_api.application.usecases.country.GetCountryById;
 import com.dnzocoud.mantix_api.application.usecases.department.GetDepartmentById;
@@ -38,5 +39,10 @@ public class CompanyUseCaseConfig {
     @Bean
     public FindAllCompanies findAllCompanies() {
         return new FindAllCompanies(companyService);
+    }
+
+    @Bean
+    public GetCompanyById getCompanyById() {
+        return new GetCompanyById(companyService);
     }
 }

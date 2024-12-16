@@ -3,6 +3,10 @@ package com.dnzocoud.mantix_api.application.usecases.user;
 import com.dnzocoud.mantix_api.application.dto.UserDTO;
 import com.dnzocoud.mantix_api.application.dto.request.StoreUserRequestDTO;
 import com.dnzocoud.mantix_api.application.mappers.UserMapper;
+import com.dnzocoud.mantix_api.application.usecases.company.GetCompanyById;
+import com.dnzocoud.mantix_api.application.usecases.role.GetRoleById;
+import com.dnzocoud.mantix_api.domain.models.Company;
+import com.dnzocoud.mantix_api.domain.models.Role;
 import com.dnzocoud.mantix_api.domain.models.User;
 import com.dnzocoud.mantix_api.domain.services.IUserService;
 import com.dnzocoud.mantix_api.infrastructure.adapters.LoggableException;
@@ -12,13 +16,19 @@ public class StoreUser {
     private static final LoggableException logger = LoggableException.getLogger("users", StoreUser.class);
 
     private final IUserService userService;
+    private final GetRoleById getRoleById;
+    private final GetCompanyById getCompanyById;
 
-    public StoreUser(IUserService userService) {
+    public StoreUser(IUserService userService, GetRoleById getRoleById, GetCompanyById getCompanyById) {
         this.userService = userService;
+        this.getRoleById = getRoleById;
+        this.getCompanyById = getCompanyById;
     }
 
     public UserDTO execute(StoreUserRequestDTO storeUserRequestDTO) {
         try {
+            Role existRole = getRoleById.execute(storeUserRequestDTO.getRoleId());
+            Company existCompany = getCompanyById.execute(storeUserRequestDTO.getCompanyId());
             User userToAdd = new User(
                     null,
                     storeUserRequestDTO.getUsername(),
@@ -26,7 +36,9 @@ public class StoreUser {
                     storeUserRequestDTO.getLastName(),
                     storeUserRequestDTO.getEmail(),
                     storeUserRequestDTO.getPassword(),
-                    null, null, null);
+                    existRole,
+                    existCompany,
+                    null);
 
             userToAdd = userService.store(userToAdd);
             return UserMapper.toDto(userToAdd);

@@ -13,6 +13,8 @@ public class StoreUserRequestDTO {
     private String lastName;
     private String email;
     private String password;
-    private int role;
-    private Set<Integer> permissions;
+    private Long roleId;
+    private Long companyId;
+    private Long subCompanyId;
+    private Set<Long> permissions;
 }
