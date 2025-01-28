@@ -8,7 +8,7 @@ import com.dnzocoud.mantix_api.application.usecases.auth.LoginUseCase;
 import com.dnzocoud.mantix_api.domain.services.AuthenticacionService;
 import com.dnzocoud.mantix_api.domain.services.ITokenService;
 
-@Configuration
+@Configuration 
 public class AuthUseCaseConfig {
     private final AuthenticacionService authenticacionService;
     private final ITokenService tokenProvider;

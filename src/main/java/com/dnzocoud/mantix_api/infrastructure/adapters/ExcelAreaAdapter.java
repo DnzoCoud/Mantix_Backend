@@ -24,13 +24,12 @@ public class ExcelAreaAdapter implements IExcelDataAdapter<ExcelAreaDTO> {
             for (Row row : sheet) {
                 if (row.getRowNum() == 0)
                     continue;
-                ExcelAreaDTO excelAreaDTO = new ExcelAreaDTO(
-                        row.getCell(0).getStringCellValue(),
+
+                ExcelAreaDTO excelAreaDTO = new ExcelAreaDTO(row.getCell(0).getStringCellValue(),
                         row.getCell(1).getStringCellValue());
                 areasDto.add(excelAreaDTO);
             }
             workbook.close();
-
         } catch (IOException e) {
             throw new RuntimeException("Error al procesar el archivo Excel", e);
         }

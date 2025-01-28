@@ -13,7 +13,10 @@ import com.dnzocoud.mantix_api.infrastructure.entities.UserEntity;
 import com.dnzocoud.mantix_api.infrastructure.mappers.UserEntityMapper;
 import com.dnzocoud.mantix_api.infrastructure.persistence.UserRepositoryJpa;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class UserServiceImpl implements IUserService {
 
     private final UserRepositoryJpa userRepositoryJpa;

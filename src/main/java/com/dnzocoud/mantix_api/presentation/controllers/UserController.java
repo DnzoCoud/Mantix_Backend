@@ -35,7 +35,7 @@ public class UserController extends BaseController {
         try {
             return responseSuccess("Lista de usuarios.", finfAllUsers.execute());
         } catch (Exception e) {
-            return responseError("null");
+            return responseError(e.getMessage());
         }
     }
 
